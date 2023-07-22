@@ -8,6 +8,7 @@ namespace SliceVegetables.UI.StateMachine
     {
         [SerializeField] GameObject panel;
         [SerializeField] LevelManager levelManager;
+        [SerializeField] ProgressBar progressBar;
 
         void Start()
         {
@@ -18,6 +19,10 @@ namespace SliceVegetables.UI.StateMachine
             if (levelManager == null)
             {
                 Debug.LogError("Level Manager is not set");
+            }
+            if (progressBar == null)
+            {
+                Debug.LogError("Progress Bar is not set");
             }
         }
 
@@ -30,6 +35,7 @@ namespace SliceVegetables.UI.StateMachine
         public void OnExitUIState()
         {
             panel.SetActive(false);
+            progressBar.ChangeColor("#3BFF6B");
         }
     }
 
